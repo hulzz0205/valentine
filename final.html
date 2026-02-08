@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>For You ❤️</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      background: linear-gradient(135deg, #ff758c, #ff7eb3);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: 'Poppins', sans-serif;
+      color: white;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    .card {
+      background: rgba(255,255,255,0.18);
+      backdrop-filter: blur(12px);
+      padding: 30px;
+      border-radius: 22px;
+      max-width: 320px;
+      animation: fadeIn 1.8s ease;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+    }
+
+    img {
+      width: 100%;
+      border-radius: 16px;
+      margin-bottom: 15px;
+    }
+
+    h2 {
+      margin: 10px 0;
+    }
+
+    p {
+      font-size: 14px;
+      opacity: 0.95;
+    }
+
+    /* FOTO & PESAN RAHASIA */
+    #secretBox {
+      display: none;
+      margin-top: 15px;
+      animation: fadeIn 1.5s ease;
+    }
+
+    #secretBox img {
+      margin-top: 10px;
+      border-radius: 14px;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* DESKTOP SEDIKIT LEBIH KECIL */
+@media (min-width: 600px) {
+  .chat-wrapper {
+    height: 90vh;
+  }
+}
+  </style>
+</head>
+
+<body>
+
+  <!-- MUSIK -->
+  <audio autoplay loop>
+    <source src="assets/lagu.mp3" type="audio/mpeg">
+  </audio>
+
+  <div class="card">
+    <!-- FOTO UTAMA -->
+    <img src="assets/foto1.jpeg" alt="Foto Kita">
+
+    <h2 id="judul">Happy Valentine 💖</h2>
+    <p id="pesan">
+      Makasih ya udah mau ngebuka ini, Happy Valentine Seraaa 🤍
+    </p>
+
+    <!-- FOTO + PESAN RAHASIA -->
+    <div id="secretBox">
+      <p><strong>I Love You Seraaa </strong></p>
+      <img src="assets/foto2.jpeg" alt="Foto Rahasia">
+      <p>Cepat Cepat Berubah Pikiran Nya Ya Biar Mau Lagi Sama Aku 🤍</p>
+    </div>
+  </div>
+
+  <script>
+    /* =========================
+       CEK JAWABAN (CUMA KAMU TAU)
+       ========================= */
+    const params = new URLSearchParams(window.location.search);
+    const jawaban = params.get("jawaban");
+
+    if (jawaban === "iya") {
+      console.log("🔥 DIA PILIH IYA ❤️");
+      document.getElementById("judul").innerText = "Aku Seneng Banget 😳❤️";
+      document.getElementById("pesan").innerText =
+        "Kamu bikin hari-hariku lebih ringan. Makasih ya 🤍";
+    } else if (jawaban === "engga") {
+      console.log("💀 DIA PILIH ENGGA 😭");
+      document.getElementById("judul").innerText = "Terima Kasih 🤍";
+      document.getElementById("pesan").innerText =
+        "Makasih udah baca sampai akhir. Kamu tetap spesial ✨";
+    }
+
+    // BERSIHIN URL BIAR GA KETAUAN
+    window.history.replaceState({}, document.title, "final.html");
+
+    /* =========================
+       EASTER EGG: KETIK "LOVE"
+       ========================= */
+    let buffer = "";
+
+    document.addEventListener("keydown", (e) => {
+      buffer += e.key.toUpperCase();
+
+      if (buffer.includes("LOVE")) {
+        document.getElementById("secretBox").style.display = "block";
+        buffer = ""; // reset biar ga ke-trigger terus
+      }
+
+      // jaga buffer biar ga kepanjangan
+      if (buffer.length > 10) {
+        buffer = buffer.slice(-10);
+      }
+    });
+  </script>
+
+</body>
+</html>
