@@ -53,7 +53,7 @@ function reply(ans) {
     if (ans === "iya") {
       box.innerHTML += `<div class="bot">EEEIHHH BENERAN?? KAMU MAU LAGI??? 😭💖</div>`;
     } else {
-      box.innerHTML += `<div class="bot">ouw masih belum mau ya… gapapa kok 🤍 makasih udah nyempetin buka ini.</div>`;
+      box.innerHTML += `<div class="bot">ouw masih belum mau ya… gapapa kok, makasih udah nyempetin buka ini.</div>`;
     }
 
     box.scrollTop = box.scrollHeight;
@@ -70,3 +70,4 @@ function reply(ans) {
     box.scrollTop = box.scrollHeight;
   }, 2600);
 }
+
