@@ -56,6 +56,25 @@
       border-radius: 14px;
     }
 
+         /* === TAMBAHAN TOMBOL FLOWERS (TIDAK MENGUBAH YANG LAIN) === */
+    .flower-btn {
+      margin-top: 18px;
+      padding: 12px 24px;
+      border: none;
+      border-radius: 30px;
+      background: linear-gradient(45deg, #ff6b81, #ff9ff3);
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s ease;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+    }
+
+    .flower-btn:hover {
+      transform: scale(1.08);
+    }
+
+    
     @keyframes fadeIn {
       from { opacity: 0; transform: translateY(20px); }
       to   { opacity: 1; transform: translateY(0); }
@@ -92,6 +111,11 @@
       <img src="assets/foto2.jpeg" alt="Foto Rahasia">
       <p>Cepat Cepat Berubah Pikiran Nya Ya Biar Mau Lagi Sama Aku 🤍</p>
     </div>
+
+       <!-- TOMBOL FLOWERS (DITAMBAHKAN SAJA) -->
+    <button class="flower-btn" onclick="location.href='/bunga/index2.html'">
+      Lihat Sesuatu Lagi 🌸
+    </button>
   </div>
 
   <script>
@@ -138,4 +162,5 @@
 
 </body>
 </html>
+
 
